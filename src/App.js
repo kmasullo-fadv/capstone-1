@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import NavMenu from './NavMenu/NavMenu'
+import Home from './Home/Home'
+import HearChords from './HearChords/HearChords'
+// import MyChords from './MyChords/MyChords'
+// import Account from './Account/Account'
+import { Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    notes: []
+  }
+
+
+
+
+  render() {
+    return (
+      <>
+        <header><h1>ChordTester</h1></header>
+        <NavMenu />
+        <Route
+          exact
+          path='/'
+          component={Home}
+        />
+        <Route
+          path='/hearchords'
+          component={HearChords}
+        />
+        {/* <Route
+          path='/mychords'
+          component={MyChords}
+        />
+        <Route
+          path='/account'
+          component={Account}
+        /> */}
+
+
+      </>
+    )
+  }
 }
 
 export default App;
